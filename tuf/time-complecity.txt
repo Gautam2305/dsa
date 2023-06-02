@@ -1,0 +1,17 @@
+Q. what is time complexity??
+
+Ans. 
+time complexity != time taken for code execution.
+The rate at which the time taken increases with respect to the input size.
+
+Big-Oh Notation - O( <time taken> )
+
+Points to remember: 
+ - Time complexity always measured in worst case scenarios.
+ - Avoid constants
+ - Avoid lower values
+
+ Auxiliary space -  The space that you take to solve the problem.
+ Input space - The space that you take you share the input.
+
+ 
