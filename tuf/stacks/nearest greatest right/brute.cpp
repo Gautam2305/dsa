@@ -1,26 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
+//next largest element
+
 
 int main(){
-    int n;
-    cin>>n;
-    vector<int> v;
-    for(int i=0;i<n;i++){
+     int n;
+     cin>>n;
+     vector<int> v;
+     for(int i=0;i<n;i++){
         int x;
         cin>>x;
         v.push_back(x);
-    }
-    vector<int> res;
-    for(int i=1;i<n;i++){
-        for(int j=i-1;j>=0;j--){
-            if(v[j]>=v[i]){
-                res.push_back(v[j]);
-            }
+     }
+
+    int i=0, j=1;
+    vector<int> temp;
+    while(i<n && j<n){
+        if(v[i]>=v[j]){
+            j++;
+        }else if(v[i]<v[j]){
+            temp.push_back(v[j]);
+            i++;
+            j=i+1;
         }
-        res.push_back(-1);
+        temp[n-1] = -1;
     }
-    reverse(res.begin(),res.end());
-    for(auto it : res){
+    for(auto it: temp){
         cout<<it<<" ";
     }
 }

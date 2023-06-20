@@ -12,16 +12,17 @@ int main(){
     }
     stack<int> st;
     vector<int> res;
-    for(int i=0;i<n;i++){
-        if(st.empty()){
+    
+    for(int i=n-1;i>=0;i--){
+        if(st.size()==0){
             res.push_back(-1);
-        }else if(!st.empty() && st.top()>v[i]){
+        }else if(st.size()>0 && st.top()>v[i]){
             res.push_back(st.top());
-        }else if(!st.empty() && st.top()<=v[i]){
-            while(!st.empty() && st.top()<=v[i]){
+        }else if(st.size()>0 && st.top()<=v[i]){
+            while(st.size()>0 && st.top()<=v[i]){
                 st.pop();
             }
-            if(st.empty()){
+            if(st.size()==0){
                 res.push_back(-1);
             }else{
                 res.push_back(st.top());
@@ -29,9 +30,9 @@ int main(){
         }
         st.push(v[i]);
     }
+    reverse(res.begin(),res.end());
+
     for(auto it: res){
         cout<<it<<" ";
     }
 }
-
-
